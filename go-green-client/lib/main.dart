@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 100,
                 ),
                 Text(
-                  'orango',
+                  'OrAngo',
                   style: TextStyle(color: Colors.white, fontSize: 50),
                 ),
                 Text(

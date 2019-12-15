@@ -211,6 +211,68 @@ class Challenge extends StatelessWidget {
         closeFunction: () => print('swage')).show();
   }
 
+  showEvents(BuildContext context,) async {
+
+    
+    var alertStyle = AlertStyle(
+      animationType: AnimationType.fromTop,
+      
+      isCloseButton: false,
+      isOverlayTapDismiss: true,
+      descStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.amber[600]),
+      animationDuration: Duration(milliseconds: 400),
+      alertBorder: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(40.0),
+        side: BorderSide(
+          color: Colors.green,
+        ),
+      ),
+      titleStyle: TextStyle(
+        color: Colors.blueGrey,
+      ),
+    );
+
+    Alert(
+        context: context,
+        style: alertStyle,
+        type: AlertType.none,
+        title: "Events",
+        content: DottedBorder(
+          color: Colors.green,
+          borderType: BorderType.RRect,
+          dashPattern: [1000, 1000],
+          radius: Radius.circular(10),
+          strokeWidth: 4,
+          padding: EdgeInsets.all(8),
+          child: Table(
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+            children: [
+              
+              TableRow(
+                children: [
+                  Text('Tree Planting', style: TextStyle(color: Colors.green)),
+                  Text('200 Points', style: TextStyle(color: Colors.green))
+                ]
+              ),
+              TableRow(
+                children: [
+                  Divider(color: Colors.green, thickness: 2,),
+                  Divider(color: Colors.green, thickness: 2,),
+                ]
+              ),
+              TableRow(
+                children: [
+                  Text('Beach Cleaning', style: TextStyle(color: Colors.green)),
+                  Text('175 Points', style: TextStyle(color: Colors.green))
+                ]
+              ),
+            ],
+          ),
+        ),
+        
+        closeFunction: () => print('swage')).show();
+  }
+
   Widget challengeLandingPage(BuildContext context, int challenge) {
     return Column(
       children: <Widget>[
@@ -525,7 +587,7 @@ class Challenge extends StatelessWidget {
           ),
           Container(
             color: Colors.transparent,
-            height: 610,
+            height: 560,
             width: 380,
             child: Card(
               color: Color.fromRGBO(139, 0, 84, 0.1),
@@ -539,17 +601,38 @@ class Challenge extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 10),
             width: 350,
-            height: 40,
-            child: MaterialButton(
-              onPressed: () => showPrizes(context, challengeNum),
-              color: Colors.amber[600],
-              child: Text(
-                'See the prizes',
-                style: TextStyle(color: Colors.white),
-              ),
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.elliptical(30, 70))),
+            height: 96,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: 300,
+                  child: MaterialButton(
+                    onPressed: () => showPrizes(context, challengeNum),
+                    color: Colors.amber[600],
+                    child: Text(
+                      'See the prizes',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.elliptical(30, 70))),
+                  ),
+                ),
+                Container(
+                  width: 300,
+                  child: MaterialButton(
+                    onPressed: () => showEvents(context),
+                    color: Colors.green[600],
+                    child: Text(
+                      'See the events',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.elliptical(30, 70))),
+                  ),
+                ),
+              ],
             ),
           )
         ],
